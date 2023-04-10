@@ -15,6 +15,86 @@
       />
       <h1>Les petits plats</h1>
     </header>
+    <main>
+      <form>
+        <div class="filter__main">
+          <label for="main__research"></label>
+          <input
+            type="search"
+            name="main__research"
+            id="main__research"
+            placeholder="Rechercher une recette"
+          />
+          <span
+            ><img src="./assets/search.svg" alt="Loupe de recherche"
+          /></span>
+        </div>
+        <div class="filter__byTag">
+          <div class="filter__byTag--ingredient">
+            <label for="ingredient"></label>
+            <input
+              type="search"
+              name="ingredient"
+              id="ingredient"
+              placeholder="Ingredients"
+            />
+            <span
+              ><img src="./assets/chevron.svg" alt="Chevron descendant"
+            /></span>
+          </div>
+          <div class="filter__byTag--device">
+            <label for="device"></label>
+            <input
+              type="search"
+              name="device"
+              id="device"
+              placeholder="Appareils"
+            />
+            <span
+              ><img src="./assets/chevron.svg" alt="Chevron descendant"
+            /></span>
+          </div>
+          <div class="filter__byTag--utensil">
+            <label for="utensil"></label>
+            <input
+              type="search"
+              name="utensil"
+              id="utensil"
+              placeholder="Ustensiles"
+            />
+            <span
+              ><img src="./assets/chevron.svg" alt="Chevron descendant"
+            /></span>
+          </div>
+        </div>
+      </form>
+
+      <section class="recipes">
+        <article>
+          <div class="img"></div>
+          <div class="content">
+            <div class="content__main">
+              <h2></h2>
+              <div class="time">
+                <img
+                  src="./assets/clock.svg"
+                  alt="Horloge indiquant le temps de préparation du plat"
+                />
+                <p></p>
+              </div>
+            </div>
+            <div class="content__sub">
+              <div class="ingredient">
+                <ul></ul>
+              </div>
+              <div class="details">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
