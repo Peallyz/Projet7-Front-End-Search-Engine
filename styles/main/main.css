@@ -1,0 +1,6 @@
+@import "./search.css";
+@import "./article.css";
+
+main {
+  margin: 0 100px 100px;
+}
