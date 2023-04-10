@@ -1,0 +1,93 @@
+form {
+  font-size: 1.8rem;
+}
+form,
+input::placeholder,
+input {
+  font-size: 1.8rem;
+  line-height: 70px;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+
+/* form label {
+  display: none;
+} */
+
+form input {
+  height: 70px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+/* input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+} */
+
+.filter__main {
+  margin-bottom: 20px;
+  position: relative;
+}
+.filter__main input {
+  background: #e7e7e7;
+  width: 100%;
+  padding: 0 25px;
+  line-height: 70px;
+}
+.filter__main span {
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.filter__main span img {
+  height: 30px;
+  aspect-ratio: 1;
+  display: flex;
+}
+
+.filter__byTag {
+  display: flex;
+  margin-bottom: 80px;
+  gap: 20px;
+}
+
+.filter__byTag input {
+  padding: 0 20px;
+}
+
+.filter__byTag input::placeholder,
+.filter__byTag input {
+  color: white;
+}
+.filter__byTag--ingredient input {
+  background: #3282f7;
+}
+.filter__byTag--device input {
+  background: #68d9a4;
+}
+.filter__byTag--utensil input {
+  background: #ed6454;
+}
+.filter__byTag--device,
+.filter__byTag--ingredient,
+.filter__byTag--utensil {
+  position: relative;
+}
+
+.filter__byTag span {
+  width: 30px;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
