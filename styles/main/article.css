@@ -14,7 +14,7 @@ article .img {
   background: #c7bebe;
 }
 article .content {
-  height: 185px;
+  height: 215px;
   background: #e7e7e7;
   padding: 20px;
   overflow: hidden;
@@ -37,7 +37,7 @@ article .content__main .time {
 article .content__sub {
   display: flex;
   font-size: 1.2rem;
-
+  gap: 5px;
   height: 100px;
   max-height: 100px;
 }
