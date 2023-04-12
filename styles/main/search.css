@@ -73,12 +73,12 @@ form input {
 .filter__byTag--device input {
   background: #68d9a4;
 }
-.filter__byTag--utensil input {
+.filter__byTag--ustensil input {
   background: #ed6454;
 }
 .filter__byTag--device,
 .filter__byTag--ingredient,
-.filter__byTag--utensil {
+.filter__byTag--ustensil {
   position: relative;
 }
 
@@ -90,4 +90,14 @@ form input {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.container__tag {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+.container__tag span {
+  width: 100px;
 }
