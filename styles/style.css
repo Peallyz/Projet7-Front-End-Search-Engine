@@ -16,9 +16,13 @@ body {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
 }
 
-.extended {
+li {
+  list-style-type: none;
+}
+
+/* .extended {
   height: 100%;
 }
 .reduced {
   height: 0%;
-}
+} */
