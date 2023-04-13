@@ -78,4 +78,18 @@ tagContainers.forEach((tagContainer) => {
   });
 });
 
-const filterTag = () => {};
+const buttons = document.querySelectorAll("button");
+const chevrons = document.querySelectorAll(".filter__byTag span");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.parentNode.classList.add("extended");
+    button.parentNode.classList.remove("reduced");
+  });
+});
+chevrons.forEach((chevron) => {
+  chevron.addEventListener("click", () => {
+    chevron.parentNode.classList.toggle("extended");
+    chevron.parentNode.classList.toggle("reduced");
+  });
+});
