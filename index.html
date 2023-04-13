@@ -30,7 +30,8 @@
           /></span>
         </div>
         <div class="filter__byTag">
-          <div class="filter__byTag--ingredient">
+          <div class="filter__byTag--ingredient reduced">
+            <button class="ingredientBtn">Ingredient</button>
             <label for="ingredient"></label>
             <input
               type="search"
@@ -41,12 +42,13 @@
             <span
               ><img src="./assets/chevron.svg" alt="Chevron descendant"
             /></span>
-            <div
+            <ul
               data-tag="ingredients"
               class="container__tag container__tag--ingredient extended"
-            ></div>
+            ></ul>
           </div>
-          <div class="filter__byTag--device">
+          <div class="filter__byTag--device reduced">
+            <button class="deviceBtn">Appareils</button>
             <label for="device"></label>
             <input
               type="search"
@@ -57,12 +59,13 @@
             <span
               ><img src="./assets/chevron.svg" alt="Chevron descendant"
             /></span>
-            <div
+            <ul
               data-tag="appliance"
               class="container__tag container__tag--device extended"
-            ></div>
+            ></ul>
           </div>
-          <div class="filter__byTag--ustensil">
+          <div class="filter__byTag--ustensil reduced">
+            <button class="ustensilsBtn">Ustensiles</button>
             <label for="ustensil"></label>
             <input
               type="search"
@@ -73,10 +76,10 @@
             <span
               ><img src="./assets/chevron.svg" alt="Chevron descendant"
             /></span>
-            <div
+            <ul
               data-tag="ustensils"
               class="container__tag container__tag--utensil extended"
-            ></div>
+            ></ul>
           </div>
         </div>
       </form>
