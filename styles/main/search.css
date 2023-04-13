@@ -3,28 +3,32 @@ form {
 }
 form,
 input::placeholder,
-input {
+input,
+button {
   font-size: 1.8rem;
   line-height: 70px;
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  min-width: 250px;
+  text-align: left;
 }
 
-/* form label {
+form label {
   display: none;
-} */
+}
 
-form input {
+form input,
+button {
   height: 70px;
   border-radius: 5px;
   outline: none;
   border: none;
 }
-/* input[type="search"]::-webkit-search-cancel-button {
+input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   height: 0;
   width: 0;
   overflow: hidden;
-} */
+}
 
 .filter__main {
   margin-bottom: 20px;
@@ -36,7 +40,8 @@ form input {
   padding: 0 25px;
   line-height: 70px;
 }
-.filter__main span {
+.filter__main span,
+form span {
   height: 100%;
   aspect-ratio: 1;
   display: flex;
@@ -52,6 +57,10 @@ form input {
   aspect-ratio: 1;
   display: flex;
 }
+form span img {
+  height: 20px;
+  aspect-ratio: 1;
+}
 
 .filter__byTag {
   display: flex;
@@ -59,21 +68,26 @@ form input {
   gap: 20px;
 }
 
-.filter__byTag input {
+.filter__byTag input,
+button {
   padding: 0 20px;
 }
 
 .filter__byTag input::placeholder,
-.filter__byTag input {
+.filter__byTag input,
+button {
   color: white;
 }
-.filter__byTag--ingredient input {
+.filter__byTag--ingredient input,
+.ingredientBtn {
   background: #3282f7;
 }
-.filter__byTag--device input {
+.filter__byTag--device input,
+.deviceBtn {
   background: #68d9a4;
 }
-.filter__byTag--ustensil input {
+.filter__byTag--ustensil input,
+.ustensilsBtn {
   background: #ed6454;
 }
 .filter__byTag--device,
@@ -82,7 +96,7 @@ form input {
   position: relative;
 }
 
-.filter__byTag span {
+.filter__byTag ul {
   width: 30px;
   height: 100%;
   position: absolute;
@@ -100,4 +114,42 @@ form input {
 }
 .container__tag span {
   width: 100px;
+}
+
+.filter__byTag button {
+  cursor: pointer;
+}
+.filter__byTag button:hover {
+  filter: brightness(0.9);
+}
+
+.filter__byTag--device.reduced button,
+.filter__byTag--ingredient.reduced button,
+.filter__byTag--ustensil.reduced button {
+  display: block;
+}
+.filter__byTag--device.extended button,
+.filter__byTag--ingredient.extended button,
+.filter__byTag--ustensil.extended button {
+  display: none;
+}
+.filter__byTag--device.reduced input,
+.filter__byTag--ingredient.reduced input,
+.filter__byTag--ustensil.reduced input {
+  display: none;
+}
+.filter__byTag--device.extended input,
+.filter__byTag--ingredient.extended input,
+.filter__byTag--ustensil.extended input {
+  display: block;
+}
+.filter__byTag--device.reduced ul,
+.filter__byTag--ingredient.reduced ul,
+.filter__byTag--ustensil.reduced ul {
+  display: none;
+}
+.filter__byTag--device.extended ul,
+.filter__byTag--ingredient.extended ul,
+.filter__byTag--ustensil.extended ul {
+  display: block;
 }
