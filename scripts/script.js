@@ -72,9 +72,9 @@ tagContainers.forEach((tagContainer) => {
     });
   }
   tags.forEach((tag) => {
-    const tagDOMSpan = document.createElement("span");
-    tagDOMSpan.innerText = tag;
-    tagContainer.appendChild(tagDOMSpan);
+    const tagDOMli = document.createElement("li");
+    tagDOMli.innerText = tag;
+    tagContainer.appendChild(tagDOMli);
   });
 });
 
