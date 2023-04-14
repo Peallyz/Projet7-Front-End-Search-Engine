@@ -9,6 +9,17 @@ const displayRecipes = (recipes) => {
   currentRecipe.forEach((recipe) => recipesSection.appendChild(recipe));
 };
 
+const mainSearchInput = document.querySelector("#main__research");
+
+mainSearchInput.addEventListener("input", (e) => {
+  if (e.target.value.length >= 3) {
+    updateAvailableRecipe(e.target.value, recipes);
+  } else {
+    displayRecipes(recipes);
+    handleTags(recipes);
+  }
+});
+
 const init = (recipes) => {
   displayRecipes(recipes);
   handleTags(recipes);
