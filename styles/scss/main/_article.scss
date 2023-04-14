@@ -1,0 +1,56 @@
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+article {
+  width: 380px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  .img {
+    height: 180px;
+    background: #c7bebe;
+  }
+  .content {
+    height: 215px;
+    background: #e7e7e7;
+    padding: 20px;
+    overflow: hidden;
+  }
+  .content__main {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    h2 {
+      font-size: 1.8rem;
+    }
+    .time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+    }
+  }
+  .content__sub {
+    display: flex;
+    font-size: 1.2rem;
+    gap: 5px;
+    height: 100px;
+    max-height: 100px;
+    .ingredient {
+      width: 50%;
+    }
+    .details {
+      width: 50%;
+      p {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+      }
+    }
+  }
+}
