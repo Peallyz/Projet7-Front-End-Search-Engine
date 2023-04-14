@@ -1,0 +1,22 @@
+{
+  "name": "projet7-front-end-search-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "sass": "sass -w ./styles/scss/styles.scss:./styles/css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peallyz/Projet7-Front-End-Search-Engine.git"
+  },
+  "author": "Peally",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Peallyz/Projet7-Front-End-Search-Engine/issues"
+  },
+  "homepage": "https://github.com/Peallyz/Projet7-Front-End-Search-Engine#readme"
+}
