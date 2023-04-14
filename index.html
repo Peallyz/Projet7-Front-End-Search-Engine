@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/css/styles.css" />
     <title>Document</title>
   </head>
   <body>
@@ -30,56 +30,62 @@
           /></span>
         </div>
         <div class="filter__byTag">
-          <div class="filter__byTag--ingredient reduced">
+          <div class="filter__byTag--ingredient extended">
             <button class="ingredientBtn" type="button">Ingredient</button>
-            <label for="ingredient"></label>
-            <input
-              type="search"
-              name="ingredient"
-              id="ingredient"
-              placeholder="Ingredients"
-            />
             <span
               ><img src="./assets/chevron.svg" alt="Chevron descendant"
             /></span>
-            <ul
-              data-tag="ingredients"
-              class="container__tag container__tag--ingredient extended"
-            ></ul>
+            <div class="tags">
+              <label for="ingredient"></label>
+              <input
+                type="search"
+                name="ingredient"
+                id="ingredient"
+                placeholder="Rechercher par ingredients"
+              />
+              <ul
+                data-tag="ingredients"
+                class="container__tag container__tag--ingredient extended"
+              ></ul>
+            </div>
           </div>
           <div class="filter__byTag--device reduced">
             <button class="deviceBtn" type="button">Appareils</button>
-            <label for="device"></label>
-            <input
-              type="search"
-              name="device"
-              id="device"
-              placeholder="Appareils"
-            />
             <span
               ><img src="./assets/chevron.svg" alt="Chevron descendant"
             /></span>
-            <ul
-              data-tag="appliance"
-              class="container__tag container__tag--device extended"
-            ></ul>
+            <div class="tags">
+              <label for="device"></label>
+              <input
+                type="search"
+                name="device"
+                id="device"
+                placeholder="Rechercher par appareils"
+              />
+              <ul
+                data-tag="appliance"
+                class="container__tag container__tag--device extended"
+              ></ul>
+            </div>
           </div>
           <div class="filter__byTag--ustensil reduced">
             <button class="ustensilsBtn" type="button">Ustensiles</button>
-            <label for="ustensil"></label>
-            <input
-              type="search"
-              name="ustensil"
-              id="ustensil"
-              placeholder="Ustensiles"
-            />
             <span
               ><img src="./assets/chevron.svg" alt="Chevron descendant"
             /></span>
-            <ul
-              data-tag="ustensils"
-              class="container__tag container__tag--utensil extended"
-            ></ul>
+            <div class="tags">
+              <label for="ustensil"></label>
+              <input
+                type="search"
+                name="ustensil"
+                id="ustensil"
+                placeholder="Rechercher par ustensiles"
+              />
+              <ul
+                data-tag="ustensils"
+                class="container__tag container__tag--utensil extended"
+              ></ul>
+            </div>
           </div>
         </div>
       </form>
