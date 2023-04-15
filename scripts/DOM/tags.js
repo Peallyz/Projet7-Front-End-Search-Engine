@@ -3,6 +3,7 @@ const handleTags = (recipes) => {
 
   tagContainers.forEach((tagContainer) => {
     let currentTag = tagContainer.getAttribute("data-tag");
+    tagContainer.innerHTML = "";
     let tags;
 
     switch (currentTag) {
