@@ -2,6 +2,7 @@ const handleTags = (recipes) => {
   const tagContainers = document.querySelectorAll(".container__tag");
 
   tagContainers.forEach((tagContainer) => {
+    tagContainer.innerHTML = "";
     let currentTag = tagContainer.getAttribute("data-tag");
     let tags;
 
