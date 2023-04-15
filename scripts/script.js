@@ -21,7 +21,7 @@ mainSearchInput.addEventListener("input", (e) => {
   }
 });
 
-let updateAvailableRecipe = (filter, recipes) => {
+const updateAvailableRecipe = (filter, recipes) => {
   let filteredList = [];
 
   for (let recipe of recipes) {
