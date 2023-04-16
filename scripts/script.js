@@ -47,18 +47,18 @@ const updateAvailableRecipe = (filter, recipes) => {
           filteredList.push(recipe);
         }
       });
-
-      recipe.ingredients.map((ingredient) => {
-        if (
-          !filteredList.includes(recipe) &&
-          ingredient.ingredient
-            .toLowerCase()
-            .trim()
-            .includes(filter.toLowerCase().trim())
-        ) {
-          filteredList.push(recipe);
-        }
-      });
+      if (!filteredList.includes(recipe)) {
+        recipe.ingredients.map((ingredient) => {
+          if (
+            ingredient.ingredient
+              .toLowerCase()
+              .trim()
+              .includes(filter.toLowerCase().trim())
+          ) {
+            filteredList.push(recipe);
+          }
+        });
+      }
     }
   });
 
