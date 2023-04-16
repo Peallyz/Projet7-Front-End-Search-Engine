@@ -39,22 +39,27 @@ const updateAvailableRecipe = (filter, recipes) => {
       if (!filteredList.includes(recipe)) filteredList.push(recipe);
     }
 
-    recipe.ustensils.map((ustensil) => {
-      if (ustensil.toLowerCase().trim().includes(filter.toLowerCase().trim())) {
-        if (!filteredList.includes(recipe)) filteredList.push(recipe);
-      }
-    });
+    if (!filteredList.includes(recipe)) {
+      recipe.ustensils.map((ustensil) => {
+        if (
+          ustensil.toLowerCase().trim().includes(filter.toLowerCase().trim())
+        ) {
+          filteredList.push(recipe);
+        }
+      });
 
-    recipe.ingredients.map((ingredient) => {
-      if (
-        ingredient.ingredient
-          .toLowerCase()
-          .trim()
-          .includes(filter.toLowerCase().trim())
-      ) {
-        if (!filteredList.includes(recipe)) filteredList.push(recipe);
-      }
-    });
+      recipe.ingredients.map((ingredient) => {
+        if (
+          !filteredList.includes(recipe) &&
+          ingredient.ingredient
+            .toLowerCase()
+            .trim()
+            .includes(filter.toLowerCase().trim())
+        ) {
+          filteredList.push(recipe);
+        }
+      });
+    }
   });
 
   displayRecipes(filteredList);
