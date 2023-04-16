@@ -4,7 +4,6 @@ const handleTags = (recipes) => {
   tagContainers.forEach((tagContainer) => {
     tagContainer.innerHTML = "";
     let currentTag = tagContainer.getAttribute("data-tag");
-    tagContainer.innerHTML = "";
     let tags;
 
     switch (currentTag) {
