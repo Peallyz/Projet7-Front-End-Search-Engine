@@ -4,11 +4,27 @@ const toggleSearchInput = (DOMElement) => {
 };
 
 const updateTags = (e) => {
-  if(e.target.value >= 3){
-    const list = e.target.nextElementSibling.querySelectorAll("li");
-    list.forEach(element => console.log(element.innerText))
-  }else{
-    console.log("Ok");
+  const list = e.target.nextElementSibling.querySelectorAll("li");
+  if (e.target.value.length >= 3) {
+    list.forEach((element) => {
+      if (
+        !element.innerText
+          .toLowerCase()
+          .trim()
+          .includes(e.target.value.toLowerCase().trim())
+      ) {
+        element.style.display = "none";
+      }
+      console.log(
+        element.innerText
+          .toLowerCase()
+          .trim()
+          .includes(e.target.value.toLowerCase().trim()),
+        e.target.value
+      );
+    });
+  } else {
+    list.forEach((element) => (element.style.display = "block"));
   }
-  }
-export { toggleSearchInput,updateTags };
+};
+export { toggleSearchInput, updateTags };
