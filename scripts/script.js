@@ -24,40 +24,47 @@ mainSearchInput.addEventListener("input", (e) => {
 const updateAvailableRecipe = (filter, recipes) => {
   let filteredList = [];
 
-  for (let recipe of recipes) {
+  recipes.map((recipe) => {
     if (
-      recipe.name.toLowerCase().trim().indexOf(filter.toLowerCase().trim()) >
-        -1 ||
+      recipe.name.toLowerCase().trim().includes(filter.toLowerCase().trim()) ||
       recipe.description
         .toLowerCase()
         .trim()
-        .indexOf(filter.toLowerCase().trim()) > -1 ||
+        .includes(filter.toLowerCase().trim()) ||
       recipe.appliance
         .toLowerCase()
         .trim()
-        .indexOf(filter.toLowerCase().trim()) > -1
+        .includes(filter.toLowerCase().trim())
     ) {
-      filteredList.push(recipe);
-
-      continue;
+      if (!filteredList.includes(recipe)) filteredList.push(recipe);
     }
 
-    for (let ustensil of recipe.ustensils) {
-      if (ustensil.toLowerCase().trim().indexOf(filter) > -1) {
-        filteredList.push(recipe);
-        break;
+    if (!filteredList.includes(recipe)) {
+      recipe.ustensils.map((ustensil) => {
+        if (
+          ustensil.toLowerCase().trim().includes(filter.toLowerCase().trim())
+        ) {
+          filteredList.push(recipe);
+        }
+      });
+      if (!filteredList.includes(recipe)) {
+        recipe.ingredients.map((ingredient) => {
+          if (
+            ingredient.ingredient
+              .toLowerCase()
+              .trim()
+              .includes(filter.toLowerCase().trim())
+          ) {
+            filteredList.push(recipe);
+          }
+        });
       }
     }
+  });
 
-    for (let ingredient of recipe.ingredients) {
-      if (ingredient.ingredient.toLowerCase().trim().indexOf(filter) > -1) {
-        filteredList.push(recipe);
-        break;
-      }
-    }
-  }
   displayRecipes(filteredList);
   handleTags(filteredList);
+
   return filteredList;
 };
 
