@@ -1,4 +1,4 @@
-import { toggleSearchInput } from "./utils.js";
+import { toggleSearchInput, updateTags } from "./utils.js";
 
 const launchEventOnTagSearchInput = () => {
   const buttons = document.querySelectorAll("button");
@@ -16,4 +16,9 @@ const launchEventOnTagSearchInput = () => {
   });
 };
 
-export { launchEventOnTagSearchInput };
+const launchEventUpdateTags = () => {
+  const inputs = document.querySelectorAll(".tags input")
+  inputs.forEach(input =>input.addEventListener("input", (e) => updateTags(e)))
+}
+
+export { launchEventOnTagSearchInput, launchEventUpdateTags };
