@@ -26,6 +26,7 @@ const handleTags = (recipes) => {
       tagContainer.appendChild(tagDOMli);
     });
   });
+  launchEventAddTag();
 };
 
 const captureTags = (option, recipes) => {
@@ -54,6 +55,27 @@ const captureTags = (option, recipes) => {
   });
 
   return tags;
+};
+
+const launchEventAddTag = (tagContainer) => {
+  const list = document.querySelectorAll(".container__tag li");
+  list.forEach((tag) => tag.addEventListener("click", (e) => addTag(e.target)));
+};
+
+const addTag = (target) => {
+  const listToDisplay = document.querySelector(".tag__list ul");
+  const liDOM = document.createElement("li");
+  liDOM.innerText = target.innerText;
+
+  if (target.parentNode.getAttribute("data-tag") === "ingredients") {
+    liDOM.classList.add("tag__ingredient");
+  } else if (target.parentNode.getAttribute("data-tag") === "appliance") {
+    liDOM.classList.add("tag__device");
+  } else if (target.parentNode.getAttribute("data-tag") === "ustensils") {
+    liDOM.classList.add("tag__ustensil");
+  }
+
+  listToDisplay.appendChild(liDOM);
 };
 
 export { handleTags };
