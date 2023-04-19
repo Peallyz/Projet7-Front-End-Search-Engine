@@ -74,6 +74,7 @@ const addTag = (target) => {
   } else if (target.parentNode.getAttribute("data-tag") === "ustensils") {
     liDOM.classList.add("tag__ustensil");
   }
+  //Mettre  la liste de tous les tag dans une variable pour preshot le tri, l'ajout et le retrait de tag
 
   listToDisplay.appendChild(liDOM);
 };
