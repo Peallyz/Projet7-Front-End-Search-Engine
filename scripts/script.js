@@ -34,7 +34,6 @@ const updateAvailableRecipe = (filter) => {
       filter,
       filteredList
     );
-    console.log(filteredList);
   } else {
     filteredList = [...recipes];
   }

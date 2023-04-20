@@ -1,6 +1,5 @@
 const toggleSearchInput = (DOMElement, option) => {
   const allTagsInput = document.querySelectorAll(".filter__byTag div");
-  console.log(allTagsInput);
   allTagsInput.forEach((element) => element.classList.remove("extended"));
 
   if (option === "open") {
@@ -22,13 +21,6 @@ const updateTags = (e) => {
       ) {
         element.style.display = "none";
       }
-      console.log(
-        element.innerText
-          .toLowerCase()
-          .trim()
-          .includes(e.target.value.toLowerCase().trim()),
-        e.target.value
-      );
     });
   } else {
     list.forEach((element) => (element.style.display = "block"));
@@ -106,7 +98,7 @@ const updateAvailableRecipeWithTag = (filteredList, allSelectedTags) => {
       );
     }
   });
-  console.log(cleanFilteredList);
+
   return cleanFilteredList;
 };
 
