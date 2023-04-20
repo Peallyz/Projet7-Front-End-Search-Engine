@@ -1,4 +1,5 @@
 import { updateAvailableRecipe } from "../script.js";
+import { closeInputSearchTag } from "../utils/utils.js";
 
 const handleTags = (recipes) => {
   const tagContainers = document.querySelectorAll(".container__tag");
@@ -83,6 +84,7 @@ const launchEventAddTag = () => {
 };
 
 const addTag = (target) => {
+  closeInputSearchTag();
   const listToDisplay = document.querySelector(".tag__list ul");
   const liDOM = document.createElement("li");
   liDOM.innerHTML = `<p>${target.innerText}</p> <img src="./assets/delete.svg" alt="Delete tag"/>`;
