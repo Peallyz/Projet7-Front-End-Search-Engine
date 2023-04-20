@@ -167,22 +167,22 @@ form {
 .filter__byTag--device,
 .filter__byTag--ingredient,
 .filter__byTag--ustensil {
-  &.reduced button {
+  button {
     display: block;
   }
-  &.extended button {
-    display: none;
+  span {
+    cursor: pointer;
+    pointer-events: none;
   }
-}
-
-.filter__byTag--device,
-.filter__byTag--ingredient,
-.filter__byTag--ustensil {
-  &.reduced .tags {
+  .tags {
     display: none;
   }
   &.extended {
+    button {
+      display: none;
+    }
     span {
+      pointer-events: initial;
       transform: translateY(-50%) rotate(180deg);
     }
     .tags {
