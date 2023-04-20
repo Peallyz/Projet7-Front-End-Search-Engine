@@ -2,6 +2,7 @@ import { createRecipeDOMElements } from "./DOM/recipes.js";
 import { handleTags } from "./DOM/tags.js";
 import recipes from "./data/recipes.js";
 import {
+  launchEventOnDeleteTag,
   launchEventOnTagSearchInput,
   launchEventUpdateTags,
 } from "./utils/eventListener.js";
@@ -44,6 +45,7 @@ const updateAvailableRecipe = (filter) => {
 
   displayRecipes(filteredList);
   handleTags(filteredList);
+  launchEventOnDeleteTag();
 
   return filteredList;
 };
