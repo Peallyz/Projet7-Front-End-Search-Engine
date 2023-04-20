@@ -1,12 +1,17 @@
-const toggleSearchInput = (DOMElement, option) => {
-  const allTagsInput = document.querySelectorAll(".filter__byTag div");
-  allTagsInput.forEach((element) => element.classList.remove("extended"));
+import { updateAvailableRecipe } from "../script.js";
 
+const toggleSearchInput = (DOMElement, option) => {
+  closeInputSearchTag();
   if (option === "open") {
     DOMElement.parentNode.classList.add("extended");
   } else if (option === "close") {
     DOMElement.parentNode.classList.remove("extended");
   }
+};
+
+const closeInputSearchTag = () => {
+  const allTagsInput = document.querySelectorAll(".filter__byTag div");
+  allTagsInput.forEach((element) => element.classList.remove("extended"));
 };
 
 const updateTags = (e) => {
@@ -25,6 +30,14 @@ const updateTags = (e) => {
   } else {
     list.forEach((element) => (element.style.display = "block"));
   }
+};
+
+const removeTag = (e) => {
+  e.target.parentNode.remove();
+
+  const filterInputValue = document.querySelector("#main__research").value;
+
+  updateAvailableRecipe(filterInputValue);
 };
 
 const updateAvailableRecipeWithInput = (recipes, filter, filteredList) => {
@@ -107,4 +120,6 @@ export {
   updateTags,
   updateAvailableRecipeWithTag,
   updateAvailableRecipeWithInput,
+  removeTag,
+  closeInputSearchTag,
 };
