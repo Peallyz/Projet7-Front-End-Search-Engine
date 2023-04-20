@@ -1,7 +1,14 @@
 import { createRecipeDOMElements } from "./DOM/recipes.js";
 import { handleTags } from "./DOM/tags.js";
 import recipes from "./data/recipes.js";
-import { launchEventOnTagSearchInput, launchEventUpdateTags } from "./utils/eventListener.js";
+import {
+  launchEventOnTagSearchInput,
+  launchEventUpdateTags,
+} from "./utils/eventListener.js";
+import {
+  updateAvailableRecipeWithInput,
+  updateAvailableRecipeWithTag,
+} from "./utils/utils.js";
 
 const displayRecipes = (recipes) => {
   const recipesSection = document.querySelector(".recipes");
@@ -13,54 +20,28 @@ const displayRecipes = (recipes) => {
 const mainSearchInput = document.querySelector("#main__research");
 
 mainSearchInput.addEventListener("input", (e) => {
-  if (e.target.value.length >= 3) {
-    updateAvailableRecipe(e.target.value, recipes);
-  } else {
-    displayRecipes(recipes);
-    handleTags(recipes);
-  }
+  updateAvailableRecipe(e.target.value);
 });
 
-const updateAvailableRecipe = (filter, recipes) => {
+const updateAvailableRecipe = (filter) => {
   let filteredList = [];
 
-  recipes.map((recipe) => {
-    if (
-      recipe.name.toLowerCase().trim().includes(filter.toLowerCase().trim()) ||
-      recipe.description
-        .toLowerCase()
-        .trim()
-        .includes(filter.toLowerCase().trim()) ||
-      recipe.appliance
-        .toLowerCase()
-        .trim()
-        .includes(filter.toLowerCase().trim())
-    ) {
-      if (!filteredList.includes(recipe)) filteredList.push(recipe);
-    }
+  const allSelectedTags = document.querySelectorAll(".tag__list ul li");
 
-    if (!filteredList.includes(recipe)) {
-      recipe.ustensils.map((ustensil) => {
-        if (
-          ustensil.toLowerCase().trim().includes(filter.toLowerCase().trim())
-        ) {
-          filteredList.push(recipe);
-        }
-      });
-      if (!filteredList.includes(recipe)) {
-        recipe.ingredients.map((ingredient) => {
-          if (
-            ingredient.ingredient
-              .toLowerCase()
-              .trim()
-              .includes(filter.toLowerCase().trim())
-          ) {
-            filteredList.push(recipe);
-          }
-        });
-      }
-    }
-  });
+  if (filter.length >= 3) {
+    filteredList = updateAvailableRecipeWithInput(
+      recipes,
+      filter,
+      filteredList
+    );
+    console.log(filteredList);
+  } else {
+    filteredList = [...recipes];
+  }
+
+  if (allSelectedTags.length > 0) {
+    filteredList = updateAvailableRecipeWithTag(filteredList, allSelectedTags);
+  }
 
   displayRecipes(filteredList);
   handleTags(filteredList);
@@ -76,3 +57,5 @@ const init = (recipes) => {
 };
 
 init(recipes);
+
+export { updateAvailableRecipe };
