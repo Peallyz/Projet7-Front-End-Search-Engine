@@ -185,25 +185,31 @@ form span img {
   filter: brightness(0.9);
 }
 
-.filter__byTag--device.reduced button,
-.filter__byTag--ingredient.reduced button,
-.filter__byTag--ustensil.reduced button {
+.filter__byTag--device button,
+.filter__byTag--ingredient button,
+.filter__byTag--ustensil button {
   display: block;
+}
+.filter__byTag--device span,
+.filter__byTag--ingredient span,
+.filter__byTag--ustensil span {
+  cursor: pointer;
+  pointer-events: none;
+}
+.filter__byTag--device .tags,
+.filter__byTag--ingredient .tags,
+.filter__byTag--ustensil .tags {
+  display: none;
 }
 .filter__byTag--device.extended button,
 .filter__byTag--ingredient.extended button,
 .filter__byTag--ustensil.extended button {
   display: none;
 }
-
-.filter__byTag--device.reduced .tags,
-.filter__byTag--ingredient.reduced .tags,
-.filter__byTag--ustensil.reduced .tags {
-  display: none;
-}
 .filter__byTag--device.extended span,
 .filter__byTag--ingredient.extended span,
 .filter__byTag--ustensil.extended span {
+  pointer-events: initial;
   transform: translateY(-50%) rotate(180deg);
 }
 .filter__byTag--device.extended .tags,
