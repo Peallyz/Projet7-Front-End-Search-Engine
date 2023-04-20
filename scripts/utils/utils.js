@@ -1,6 +1,13 @@
-const toggleSearchInput = (DOMElement) => {
-  DOMElement.parentNode.classList.toggle("extended");
-  DOMElement.parentNode.classList.toggle("reduced");
+const toggleSearchInput = (DOMElement, option) => {
+  const allTagsInput = document.querySelectorAll(".filter__byTag div");
+  console.log(allTagsInput);
+  allTagsInput.forEach((element) => element.classList.remove("extended"));
+
+  if (option === "open") {
+    DOMElement.parentNode.classList.add("extended");
+  } else if (option === "close") {
+    DOMElement.parentNode.classList.remove("extended");
+  }
 };
 
 const updateTags = (e) => {

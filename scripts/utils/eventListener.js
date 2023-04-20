@@ -6,19 +6,21 @@ const launchEventOnTagSearchInput = () => {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      toggleSearchInput(button);
+      toggleSearchInput(button, "open");
     });
   });
   chevrons.forEach((chevron) => {
     chevron.addEventListener("click", () => {
-      toggleSearchInput(chevron);
+      toggleSearchInput(chevron, "close");
     });
   });
 };
 
 const launchEventUpdateTags = () => {
-  const inputs = document.querySelectorAll(".tags input")
-  inputs.forEach(input =>input.addEventListener("input", (e) => updateTags(e)))
-}
+  const inputs = document.querySelectorAll(".tags input");
+  inputs.forEach((input) =>
+    input.addEventListener("input", (e) => updateTags(e))
+  );
+};
 
 export { launchEventOnTagSearchInput, launchEventUpdateTags };
