@@ -1,4 +1,4 @@
-import { toggleSearchInput, updateTags } from "./utils.js";
+import { removeTag, toggleSearchInput, updateTags } from "./utils.js";
 
 const launchEventOnTagSearchInput = () => {
   const buttons = document.querySelectorAll("button");
@@ -23,4 +23,16 @@ const launchEventUpdateTags = () => {
   );
 };
 
-export { launchEventOnTagSearchInput, launchEventUpdateTags };
+const launchEventOnDeleteTag = () => {
+  const deleteTagCross = document.querySelectorAll(".tag__list li img");
+
+  deleteTagCross.forEach((deleteIcon) =>
+    deleteIcon.addEventListener("click", (e) => removeTag(e))
+  );
+};
+
+export {
+  launchEventOnTagSearchInput,
+  launchEventUpdateTags,
+  launchEventOnDeleteTag,
+};
