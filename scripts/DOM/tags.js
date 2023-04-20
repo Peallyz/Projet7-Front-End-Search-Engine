@@ -1,3 +1,5 @@
+import { updateAvailableRecipe } from "../script.js";
+
 const handleTags = (recipes) => {
   const tagContainers = document.querySelectorAll(".container__tag");
 
@@ -57,7 +59,7 @@ const captureTags = (option, recipes) => {
   return tags;
 };
 
-const launchEventAddTag = (tagContainer) => {
+const launchEventAddTag = () => {
   const list = document.querySelectorAll(".container__tag li");
   list.forEach((tag) => tag.addEventListener("click", (e) => addTag(e.target)));
 };
@@ -65,18 +67,21 @@ const launchEventAddTag = (tagContainer) => {
 const addTag = (target) => {
   const listToDisplay = document.querySelector(".tag__list ul");
   const liDOM = document.createElement("li");
-  liDOM.innerText = target.innerText;
+  liDOM.innerHTML = `<p>${target.innerText}</p> <img src="./assets/delete.svg" alt="Delete tag"/>`;
 
   if (target.parentNode.getAttribute("data-tag") === "ingredients") {
-    liDOM.classList.add("tag__ingredient");
+    liDOM.classList.add("tag__list--ingredient");
   } else if (target.parentNode.getAttribute("data-tag") === "appliance") {
-    liDOM.classList.add("tag__device");
+    liDOM.classList.add("tag__list--device");
   } else if (target.parentNode.getAttribute("data-tag") === "ustensils") {
-    liDOM.classList.add("tag__ustensil");
+    liDOM.classList.add("tag__list--ustensil");
   }
-  //Mettre  la liste de tous les tag dans une variable pour preshot le tri, l'ajout et le retrait de tag
 
   listToDisplay.appendChild(liDOM);
+
+  const filterInputValue = document.querySelector("#main__research").value;
+
+  updateAvailableRecipe(filterInputValue);
 };
 
 export { handleTags };
