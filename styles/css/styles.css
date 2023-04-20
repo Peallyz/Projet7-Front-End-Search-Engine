@@ -273,6 +273,41 @@ article .content__sub .details p {
   -webkit-line-clamp: 5;
 }
 
+.tag__list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+  line-height: initial;
+  color: white;
+  font-size: 14px;
+}
+.tag__list ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
+  height: 40px;
+  align-items: center;
+  width: fit-content;
+  border-radius: 5px;
+}
+.tag__list ul li p {
+  margin-right: 20px;
+  white-space: nowrap;
+}
+.tag__list ul li img {
+  cursor: pointer;
+}
+.tag__list--ingredient {
+  background-color: #3282f7;
+}
+.tag__list--device {
+  background: #68d9a4;
+}
+.tag__list--ustensil {
+  background: #ed6454;
+}
+
 main {
   margin: 0 100px 100px;
 }
