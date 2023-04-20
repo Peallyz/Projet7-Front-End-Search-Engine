@@ -33,6 +33,11 @@ const handleTags = (recipes) => {
 
 const captureTags = (option, recipes) => {
   let targets;
+
+  const allSelectedTags = document.querySelectorAll(".tag__list ul li");
+  let tagList = "";
+  allSelectedTags.forEach((tag) => (tagList += `${tag.innerText} `));
+
   const tags = [];
   recipes.forEach((recipe) => {
     if (option === "ingredients") {
@@ -45,12 +50,25 @@ const captureTags = (option, recipes) => {
 
     if (Array.isArray(targets)) {
       targets.forEach((target) => {
-        if (!tags.includes(target.ingredient ? target.ingredient : target)) {
+        if (
+          !tags.includes(target.ingredient ? target.ingredient : target) &&
+          !tagList
+            .toLowerCase()
+            .trim()
+            .includes(
+              target.ingredient
+                ? target.ingredient.toLowerCase().trim()
+                : target.toLowerCase().trim()
+            )
+        ) {
           tags.push(target.ingredient ? target.ingredient : target);
         }
       });
     } else {
-      if (!tags.includes(targets)) {
+      if (
+        !tags.includes(targets) &&
+        !tagList.toLowerCase().trim().includes(targets.toLowerCase().trim())
+      ) {
         tags.push(targets);
       }
     }
