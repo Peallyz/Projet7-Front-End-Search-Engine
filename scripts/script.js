@@ -14,8 +14,15 @@ import {
 const displayRecipes = (recipes) => {
   const recipesSection = document.querySelector(".recipes");
   recipesSection.innerHTML = "";
-  const currentRecipe = createRecipeDOMElements(recipes);
-  currentRecipe.forEach((recipe) => recipesSection.appendChild(recipe));
+  if (recipes.length > 0) {
+    const currentRecipe = createRecipeDOMElements(recipes);
+    currentRecipe.forEach((recipe) => recipesSection.appendChild(recipe));
+  } else {
+    const noRecipeMessage = document.createElement("h2");
+    noRecipeMessage.innerText = `Aucune recette ne correspond à votre critère… vous pouvez
+chercher « tarte aux pommes », « poisson », etc.`;
+    recipesSection.appendChild(noRecipeMessage);
+  }
 };
 
 const mainSearchInput = document.querySelector("#main__research");
