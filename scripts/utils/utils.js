@@ -9,6 +9,28 @@ const toggleSearchInput = (DOMElement, option) => {
   }
 };
 
+const removeDuplicate = (arr) => {
+  // Utiliser un Set pour stocker les valeurs uniques
+  let uniqueSet = new Set();
+
+  // Utiliser un tableau pour stocker les valeurs uniques en respectant la casse
+  let uniqueArray = [];
+
+  // Parcourir l'array d'origine
+  for (let i = 0; i < arr.length; i++) {
+    // Convertir la valeur en minuscules pour éviter les doublons avec des majuscules/minuscules différentes
+    let lowercaseValue = arr[i].toLowerCase();
+
+    // Ajouter la valeur au Set seulement si elle n'existe pas déjà (en respectant la casse)
+    if (!uniqueSet.has(lowercaseValue)) {
+      uniqueSet.add(lowercaseValue);
+      uniqueArray.push(arr[i]);
+    }
+  }
+
+  return uniqueArray;
+};
+
 const closeInputSearchTag = () => {
   const allTagsInput = document.querySelectorAll(".filter__byTag div");
   allTagsInput.forEach((element) => element.classList.remove("extended"));
@@ -122,4 +144,5 @@ export {
   updateAvailableRecipeWithInput,
   removeTag,
   closeInputSearchTag,
+  removeDuplicate,
 };
