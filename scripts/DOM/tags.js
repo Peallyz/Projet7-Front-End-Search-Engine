@@ -1,5 +1,5 @@
 import { updateAvailableRecipe } from "../script.js";
-import { closeInputSearchTag } from "../utils/utils.js";
+import { closeInputSearchTag, removeDuplicate } from "../utils/utils.js";
 
 const handleTags = (recipes) => {
   const tagContainers = document.querySelectorAll(".container__tag");
@@ -75,7 +75,7 @@ const captureTags = (option, recipes) => {
     }
   });
 
-  return tags;
+  return removeDuplicate(tags);
 };
 
 const launchEventAddTag = () => {
