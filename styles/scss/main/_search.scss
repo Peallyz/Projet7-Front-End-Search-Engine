@@ -32,6 +32,7 @@ button {
   border-radius: 5px;
   outline: none;
   border: none;
+  user-select: none;
   color: white;
   padding: 0 20px;
 }
@@ -47,7 +48,7 @@ button {
   }
   span {
     height: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,9 +56,10 @@ button {
     top: 50%;
     transform: translateY(-50%) rotate(0);
     right: 0;
+
     img {
       height: 30px;
-      aspect-ratio: 1;
+      aspect-ratio: 1/1;
       display: flex;
     }
   }
@@ -66,7 +68,7 @@ button {
 form {
   span {
     height: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,9 +76,10 @@ form {
     top: 50%;
     transform: translateY(-50%);
     right: 0;
+    user-select: none;
     img {
       height: 20px;
-      aspect-ratio: 1;
+      aspect-ratio: 1/1;
     }
   }
 }
@@ -86,6 +89,10 @@ form {
   margin-bottom: 80px;
   gap: 20px;
   position: relative;
+  @media screen and (max-width: 1475px) {
+    flex-direction: column;
+    width: fit-content;
+  }
   ul {
     width: 100%;
     height: auto;
@@ -99,6 +106,10 @@ form {
     gap: 10px 0;
     border-radius: 0 0 5px 5px;
     padding: 10px;
+    @media screen and (max-width: 1475px) {
+      max-height: 300px;
+      overflow-y: auto;
+    }
     li {
       padding: 0 10px;
       width: calc(100% / 3);
@@ -109,6 +120,12 @@ form {
       white-space: nowrap;
       line-height: 30px;
       cursor: pointer;
+      @media screen and (max-width: 800px) {
+        width: calc(100% / 2);
+      }
+      @media screen and (max-width: 400px) {
+        width: calc(100%);
+      }
       &:hover {
         background: white;
         color: black;
@@ -187,8 +204,12 @@ form {
     }
     .tags {
       display: block;
+      user-select: none;
       input {
         width: 715px;
+        @media screen and (max-width: 800px) {
+          width: calc(100vw - 60px);
+        }
       }
     }
   }
