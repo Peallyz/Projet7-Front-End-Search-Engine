@@ -1,23 +1,30 @@
 .recipes {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
+  h2 {
+    font-size: 3.2rem;
+    text-align: center;
+  }
 }
 
 article {
   width: 380px;
   border-radius: 5px;
   overflow: hidden;
+  user-select: none;
 
   .img {
     height: 180px;
     background: #c7bebe;
   }
   .content {
-    height: 215px;
+    min-height: auto;
     background: #e7e7e7;
     padding: 20px;
     overflow: hidden;
+    user-select: text;
   }
   .content__main {
     display: flex;
@@ -26,6 +33,7 @@ article {
     margin-bottom: 20px;
     h2 {
       font-size: 1.8rem;
+      text-align: left;
     }
     .time {
       display: flex;
@@ -38,13 +46,14 @@ article {
     display: flex;
     font-size: 1.2rem;
     gap: 5px;
-    height: 100px;
-    max-height: 100px;
+
     .ingredient {
       width: 50%;
+      height: fit-content;
     }
     .details {
       width: 50%;
+      height: fit-content;
       p {
         overflow: hidden;
         display: -webkit-box;
