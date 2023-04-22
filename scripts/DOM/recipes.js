@@ -3,8 +3,7 @@ const createRecipeDOMElements = (recipes) => {
 
   recipes.forEach((recipe) => {
     const recipesTemplate = document.createElement("article");
-    recipesTemplate.innerHTML = `<article>
-      <div class="img"></div>
+    recipesTemplate.innerHTML = `<div class="img"></div>
       <div class="content">
         <div class="content__main">
           <h2>${recipe.name}</h2>
@@ -27,7 +26,6 @@ const createRecipeDOMElements = (recipes) => {
           </div>
         </div>
       </div>
-    </article>
     `;
     allRecipesDOMElement.push(recipesTemplate);
   });
