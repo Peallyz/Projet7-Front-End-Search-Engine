@@ -52,6 +52,7 @@ button {
   border-radius: 5px;
   outline: none;
   border: none;
+  user-select: none;
   color: white;
   padding: 0 20px;
 }
@@ -68,7 +69,7 @@ button {
 }
 .filter__main span {
   height: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,13 +80,13 @@ button {
 }
 .filter__main span img {
   height: 30px;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   display: flex;
 }
 
 form span {
   height: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,10 +94,11 @@ form span {
   top: 50%;
   transform: translateY(-50%);
   right: 0;
+  user-select: none;
 }
 form span img {
   height: 20px;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
 }
 
 .filter__byTag {
@@ -104,6 +106,12 @@ form span img {
   margin-bottom: 80px;
   gap: 20px;
   position: relative;
+}
+@media screen and (max-width: 1475px) {
+  .filter__byTag {
+    flex-direction: column;
+    width: fit-content;
+  }
 }
 .filter__byTag ul {
   width: 100%;
@@ -119,6 +127,12 @@ form span img {
   border-radius: 0 0 5px 5px;
   padding: 10px;
 }
+@media screen and (max-width: 1475px) {
+  .filter__byTag ul {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}
 .filter__byTag ul li {
   padding: 0 10px;
   width: 33.3333333333%;
@@ -129,6 +143,16 @@ form span img {
   white-space: nowrap;
   line-height: 30px;
   cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  .filter__byTag ul li {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .filter__byTag ul li {
+    width: 100%;
+  }
 }
 .filter__byTag ul li:hover {
   background: white;
@@ -216,33 +240,48 @@ form span img {
 .filter__byTag--ingredient.extended .tags,
 .filter__byTag--ustensil.extended .tags {
   display: block;
+  user-select: none;
 }
 .filter__byTag--device.extended .tags input,
 .filter__byTag--ingredient.extended .tags input,
 .filter__byTag--ustensil.extended .tags input {
   width: 715px;
 }
+@media screen and (max-width: 800px) {
+  .filter__byTag--device.extended .tags input,
+.filter__byTag--ingredient.extended .tags input,
+.filter__byTag--ustensil.extended .tags input {
+    width: calc(100vw - 60px);
+  }
+}
 
 .recipes {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
+}
+.recipes h2 {
+  font-size: 3.2rem;
+  text-align: center;
 }
 
 article {
   width: 380px;
   border-radius: 5px;
   overflow: hidden;
+  user-select: none;
 }
 article .img {
   height: 180px;
   background: #c7bebe;
 }
 article .content {
-  height: 215px;
+  min-height: auto;
   background: #e7e7e7;
   padding: 20px;
   overflow: hidden;
+  user-select: text;
 }
 article .content__main {
   display: flex;
@@ -252,6 +291,7 @@ article .content__main {
 }
 article .content__main h2 {
   font-size: 1.8rem;
+  text-align: left;
 }
 article .content__main .time {
   display: flex;
@@ -263,14 +303,14 @@ article .content__sub {
   display: flex;
   font-size: 1.2rem;
   gap: 5px;
-  height: 100px;
-  max-height: 100px;
 }
 article .content__sub .ingredient {
   width: 50%;
+  height: fit-content;
 }
 article .content__sub .details {
   width: 50%;
+  height: fit-content;
 }
 article .content__sub .details p {
   overflow: hidden;
@@ -316,6 +356,11 @@ article .content__sub .details p {
 
 main {
   margin: 0 100px 100px;
+}
+@media screen and (max-width: 1000px) {
+  main {
+    margin: 0 20px 20px;
+  }
 }
 
 *,
