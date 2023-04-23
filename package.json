@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Peallyz/Projet7-Front-End-Search-Engine/issues"
   },
-  "homepage": "https://github.com/Peallyz/Projet7-Front-End-Search-Engine#readme"
+  "homepage": "https://github.com/Peallyz/Projet7-Front-End-Search-Engine#readme",
+  "devDependencies": {
+    "eslint": "^8.39.0"
+  }
 }
