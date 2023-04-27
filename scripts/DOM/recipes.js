@@ -32,6 +32,20 @@ const createRecipeDOMElements = (recipes) => {
   return allRecipesDOMElement;
 };
 
+const displayRecipes = (recipes) => {
+  const recipesSection = document.querySelector(".recipes");
+  recipesSection.innerHTML = "";
+  if (recipes.length > 0) {
+    const currentRecipe = createRecipeDOMElements(recipes);
+    currentRecipe.forEach((recipe) => recipesSection.appendChild(recipe));
+  } else {
+    const noRecipeMessage = document.createElement("h2");
+    noRecipeMessage.innerText = `Aucune recette ne correspond à votre critère… vous pouvez
+chercher « tarte aux pommes », « poisson », etc.`;
+    recipesSection.appendChild(noRecipeMessage);
+  }
+};
+
 const captureIngredient = (recipe) => {
   let ingredientsList = "";
 
@@ -45,4 +59,4 @@ const captureIngredient = (recipe) => {
   return ingredientsList;
 };
 
-export { createRecipeDOMElements };
+export { createRecipeDOMElements, displayRecipes };
