@@ -58,43 +58,38 @@ const removeTag = (e) => {
 };
 
 const updateAvailableRecipeWithInput = (recipes, filter, filteredList) => {
-  recipes.map((recipe) => {
+  for (let recipe of recipes) {
     if (
-      recipe.name.toLowerCase().trim().includes(filter.toLowerCase().trim()) ||
+      recipe.name.toLowerCase().trim().indexOf(filter.toLowerCase().trim()) >
+        -1 ||
       recipe.description
         .toLowerCase()
         .trim()
-        .includes(filter.toLowerCase().trim()) ||
+        .indexOf(filter.toLowerCase().trim()) > -1 ||
       recipe.appliance
         .toLowerCase()
         .trim()
-        .includes(filter.toLowerCase().trim())
+        .indexOf(filter.toLowerCase().trim()) > -1
     ) {
-      if (!filteredList.includes(recipe)) filteredList.push(recipe);
+      filteredList.push(recipe);
+
+      continue;
     }
 
-    if (!filteredList.includes(recipe)) {
-      recipe.ustensils.map((ustensil) => {
-        if (
-          ustensil.toLowerCase().trim().includes(filter.toLowerCase().trim())
-        ) {
-          filteredList.push(recipe);
-        }
-      });
-      if (!filteredList.includes(recipe)) {
-        recipe.ingredients.map((ingredient) => {
-          if (
-            ingredient.ingredient
-              .toLowerCase()
-              .trim()
-              .includes(filter.toLowerCase().trim())
-          ) {
-            filteredList.push(recipe);
-          }
-        });
+    for (let ustensil of recipe.ustensils) {
+      if (ustensil.toLowerCase().trim().indexOf(filter) > -1) {
+        filteredList.push(recipe);
+        break;
       }
     }
-  });
+
+    for (let ingredient of recipe.ingredients) {
+      if (ingredient.ingredient.toLowerCase().trim().indexOf(filter) > -1) {
+        filteredList.push(recipe);
+        break;
+      }
+    }
+  }
   return filteredList;
 };
 const updateAvailableRecipeWithTag = (filteredList, allSelectedTags) => {
